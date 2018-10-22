@@ -1,4 +1,11 @@
 version: 2
+
+workflows:
+  version: 2
+  nikos_antonia:
+    jobs:
+      - nikos
+      - antonia
 jobs:
   nikos:
     docker:
@@ -11,10 +18,4 @@ jobs:
       - image: circleci/node:8.9
     steps:
       - checkout
-      - run: echo "Double trouble"      
-workflows:
-  version: 2
-  nikos_antonia:
-    jobs:
-      - nikos
-      - antonia
+      - run: echo "Double trouble"
