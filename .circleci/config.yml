@@ -1,21 +1,20 @@
 version: 2
-
-workflows:
-  version: 2
-  nikos_antonia:
-    jobs:
-      - nikos
-      - antonia
 jobs:
-  nikos:
+  build:
     docker:
       - image: circleci/node:8.9
     steps:
       - checkout
       - run: echo "First hello"
-  antonia:
+  nikos:
     docker:
       - image: circleci/node:8.9
     steps:
       - checkout
-      - run: echo "Double trouble"
+      - run: echo "Double trouble"      
+workflows:
+  version: 2
+  build_nikos:
+    jobs:
+      - build
+      - nikos
